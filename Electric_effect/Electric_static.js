@@ -21,21 +21,16 @@
 // var dataset = [];
 
 // model
-function Electric(points){
+// open to extention closed to modification
+function Electric(points, xTollorance, yTollorance){
     this.xTollorance = 0;
-    this.yTollorance = 10; // works with even values: may work with non-even(is an edge case)
+    this.yTollorance = 30; // works with even values: may work with non-even(is an edge case)
     this.points = points;
-    this.pointsOriginal = [];
-    this.init();
+    this.pointsOriginal = arrayOfPointsCopy(points);
+    this.observers = []; 
 }
 
-// rename this to copy
-Electric.prototype.init = function(){
-    var self = this;
-    this.points.forEach(function(point){
-        self.pointsOriginal.push(new Point(point.x, point.y));
-    })
-}
+
 
 
 // Electric.prototype.changeXState = function(){
@@ -50,34 +45,35 @@ Electric.prototype.init = function(){
 Electric.prototype.changeYState = function(){
     var self = this;
     this.points.forEach(function(point, i, arr){
-
         var n = 0;
         do {
             n = point.y - (self.yTollorance / 2) +
                 Math.round(Math.random() * self.yTollorance);
-            // console.log(n);
-            // console.log(self.pointsOriginal[i].y);
-            // console.log(((self.pointsOriginal[i].y) - (self.yTollorance / 2)));
-
-            console.log("calcing");
+            //console.log("calcing");
         }while(n > ((self.pointsOriginal[i].y) + (self.yTollorance / 2)) || n < ((self.pointsOriginal[i].y) - (self.yTollorance / 2)));
         point.y = n;
-
-        console.log(point.y);
-        console.log(i);
     });
-    // this.notify(this);
+    
+    // this won't work unless Observable is extended
+    this.notifyObservers();
 };
 
+Electric.prototype.notifyObservers = function(){
+    if(this.observers.length >= 1){
+        console.log("notifying observers and parsing " + this);
+        this.notify(this);
+    }
+};
 
-console.log("point array test");
-var el = new Electric([new Point(5, 50), new Point(10, 50), new Point(15, 50)]);
-console.log(el);
+Electric.prototype.notify = function(){
+    this.observers.forEach(function(observer){
+        observer.update(this); // pass reference of observable obj to observer 
+    })
+}; 
 
-for(var i = 0; i < 10; i++) {
-    el.changeYState();
-    console.log(el);
-    console.log(el.pointsOriginal)
+
+Electric.prototype.addObserver = function(observer){
+    this.observers.push(observer);
 }
 
 

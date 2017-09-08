@@ -3,15 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+            background:#111;
+            background-blend-mode: color-dodge;
+        }
+
+        *{
+            font-family: Arial;
+        }
+
+        h2{
+            display: inline-block;
+            background:#eee;
+            float: left;
+            padding:5px;
+        }
+        
+        canvas{
+            float: left;
+        }
+
+        header{
+
+        }
+    </style>
 </head>
 <body>
-<canvas id="test" width="400" height="200">
-</canvas>
+<header>
+    <h2> Humanoid </h2>
+    <canvas id="test" width="400" height="200"> </canvas>
+</header>
+
+<p> <em> blog of Christopher P.K Morris</em></p>
+<ul>
+    <li> <strong> programming </strong> </li>
+    <li> psychology </li>
+    <li> art </li>
+    <li> music </li>
+    <li> CV </li>
+</ul>
+
+<p> <time> </time> current brain waves waves</p>
+
+<button id="btn1"> play </button>
+<button id="btn2"> stop </button>
+
+
+
 
 <script src="Point.js"> </script>
-<script src="Electric_static.js"> </script>
-<script src="Electric_presenter.js"> </script>
-<script src="Electric_controller.js"> </script>
+<script src="utils/Copy.js"> </script>
+<script src="design_patterns/Observable.js"> </script>
+<script src="design_patterns/Observer.js"> </script>
+<script src="Electric_effect/Electric_static.js"> </script>
+<script src="Electric_effect/Electric_presenter.js"> </script>
+<script src="Electric_effect/Electric_controller.js"> </script>
+
+<script src="app.js"> </script>
 
 <!--<script src="https://code.jquery.com/qunit/qunit-2.4.0.js"></script>-->
 <!--<script src="tests/test.js"></script>-->

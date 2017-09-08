@@ -6,23 +6,11 @@
 
     // setup
     function setup(arg){
-        // the object Electric handles undefined value argument already
         return new Electric(arg);
     }
 
-    // teardown
-
-
     QUnit.test( "hello test", function( assert ) {
         assert.ok( 1 == "1", "Passed!" );
-    });
-
-    QUnit.test("points length 0", function( assert ){
-        var elec_static_state = setup();
-        var expected = 0;
-        var actual = elec_static_state.points.length;
-        console.log("actual " + actual);
-        assert.equal(actual, expected, "points array is 0 length");
     });
 
     QUnit.test("points length 2", function( assert ){
@@ -36,56 +24,45 @@
     
     
     // bug with test? 
-    QUnit.test("Electric.stateChangeX and Y", function( assert ){
+    QUnit.test("Electric.stateChangeY", function( assert ){
         var dataSet = [];
-        dataSet.push(new Point(5, 2));
-        dataSet.push(new Point(7, 3));
-        var dataSetCopy = dataSet.slice(0); // copy array to new reference
-        console.log("copy");
-        console.log(dataSetCopy);
-        // check original
+        dataSet.push(new Point(5, 50));
 
-        (function(){
-            for(var i = 0; i < dataSet.length; i++){
-                console.log("running");
-                console.log(dataSet[i].getX());
-                console.log(dataSet);
-                assert.equal(dataSet[i].x, dataSetCopy[i].x, "check copy'data val's x are same");
-                assert.equal(dataSet[i].y, dataSetCopy[i].y, "check copy'data val's y are same");
+        var elec_static_state = setup(dataSet);
+
+        // count how many times a diff value is created from original
+        var notmatches = 0;
+        (function(n){
+            for(var j = 0; j <= n; j++){
+
+                // exercise
+                elec_static_state.changeYState();
+
+                for(var i = 0; i < dataSet.length; i++){
+                    if(elec_static_state.pointsOriginal[i].y !== elec_static_state.points[i].y){
+                        notmatches++;
+                    }
+                }
             }
-        })();
 
-        // check copy to new reference properly
-        assert.ok(dataSet != dataSetCopy, "make sure copy is of different reference to original dataset");
-
-        console.log("running here");
-
-
-        var elec_static_state = setup(dataSetCopy);
-        console.log(elec_static_state);
-        elec_static_state.changeXState();
-        (function(){
-            for(var i = 0; i < dataSet.length; i++){
-                console.log("running");
-                console.log(dataSet);
-                console.log("sadf x  " + dataSet[i].getX());
-                console.log("sadf y " + dataSet[i].getY());
-                assert.ok(dataSet[i].getX() !== elec_static_state.points[i].getX(), "check x state change");
-                assert.ok(dataSet[i].getY() !== elec_static_state.points[i].getY(), "check y state change");
-            }
-        }());
+        }(20));
+        assert.ok(notmatches > 10 , "passed");
     });
 
-    QUnit.test("test state change between certain tolerance", function( assert ){
-        // var elec_static_state = setup([new Point(1,1), new Point(4,4)]);
-        // var expected = 2;
-        // var actual = elec_static_state.points.length;
-        // console.log("actual " + actual);
-        // assert.equal(actual, expected, "test state change between certain tolerance");
+    QUnit.test("test y state change between certain tolerance", function( assert ){
+        var dataSet = [];
+        dataSet.push(new Point(5, 50));
+        dataSet.push(new Point(7, 50));
+
+        var elec_static_state = setup(dataSet);
+        for(var i = 0; i <= 50; i++){
+            elec_static_state.changeYState();
+            elec_static_state.points.forEach(function(point){
+                assert.ok(point.y <= 55 && point.y >= 45, "y state change is between certain tolerance");
+            });
+        }
+
     });
 
-
-
-    //QUnit.test()
 })();
 
