@@ -32,7 +32,13 @@ var points = [new Point(5, 50),
     new Point(50, 50),
     new Point(55, 50),
     new Point(60, 50),
-    new Point(65, 50)];
+    new Point(65, 50),
+    new Point(70, 50),
+    new Point(75, 50),
+    new Point(80, 50),
+    new Point(85, 50),
+    new Point(90, 50)
+  ];
 console.log(points);
 var electricModel1 = new Electric(points, "#cb42f4", 3);
 var electricModel2 = new Electric(arrayOfPointsCopy(points), "#f49ceb", 2);
@@ -52,6 +58,8 @@ var electricView = new Electric_presenter(canvas);
 electricModel1.addObserver(electricView);
 electricModel2.addObserver(electricView);
 // electricModel.addObserver(elecricView2);
+
+elecController.play();
 
 console.log(playBtn);
 playBtn.addEventListener("click", () => {
