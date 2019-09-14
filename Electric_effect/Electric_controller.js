@@ -6,10 +6,10 @@
 
 
 // electric controller responsibility?
-function ElectricController(electric_model, speed){
+function ElectricController(electric_models, speed){
     this.playing = false;
     this.speed = speed || 200;
-    this.model = electric_model;
+    this.models = electric_models;
     this.playerId = null;
 }
 
@@ -18,8 +18,11 @@ ElectricController.prototype.play = function(delay){
     if(this.playing == false){
         this.playing = true;
         this.playerId = window.setInterval(function () {
-            console.log(self.model);
-            self.model.changeYState();
+            console.log(self.models);
+            self.models.forEach(function(model){
+                console.log(model); 
+                model.changeYState(); 
+            }); 
             // this.model.changeYState();
         }, this.speed);
     }

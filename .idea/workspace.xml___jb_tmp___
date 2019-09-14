@@ -64,7 +64,7 @@
           <file leaf-file-name="Electric_static.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Electric_effect/Electric_static.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
+                <state relative-caret-position="360">
                   <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
                   <folding>
                     <element signature="n#!!doc;n#Electric#0" expanded="false" />
@@ -162,7 +162,7 @@
           <file leaf-file-name="electric_static_tests.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/electric_static_tests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="715">
+                <state relative-caret-position="870">
                   <caret line="60" column="105" selection-start-line="60" selection-start-column="105" selection-end-line="60" selection-end-column="105" />
                   <folding>
                     <element signature="e#0#42#0" expanded="false" />
@@ -431,15 +431,16 @@
       <workItem from="1504620804830" duration="15993000" />
       <workItem from="1504649220188" duration="35539000" />
       <workItem from="1504896539317" duration="896000" />
+      <workItem from="1505083535888" duration="8000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55809000" />
+    <option name="totallyTimeSpent" value="55817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="738" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1703125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -521,6 +522,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Electric_effect/Electric_static.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!doc;n#Electric#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/design_patterns/Observable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -591,7 +602,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/electric_static_tests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
+        <state relative-caret-position="870">
           <caret line="60" column="105" selection-start-line="60" selection-start-column="105" selection-end-line="60" selection-end-column="105" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
@@ -612,16 +623,6 @@
         <state relative-caret-position="135">
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Electric_effect/Electric_static.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!doc;n#Electric#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

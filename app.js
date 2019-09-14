@@ -34,9 +34,13 @@ var points = [new Point(5, 50),
     new Point(60, 50),
     new Point(65, 50)];
 console.log(points);
-var electricModel = new Electric(points);
-var elecController = new ElectricController(electricModel, 10);
-var electricView = new Electric_presenter(canvas, "#cb42f4", 3);
+var electricModel1 = new Electric(points, "#cb42f4", 3);
+var electricModel2 = new Electric(arrayOfPointsCopy(points), "#f49ceb", 2);
+
+var electricModels = [electricModel1, electricModel2];
+
+var elecController = new ElectricController(electricModels, 20);
+var electricView = new Electric_presenter(canvas);
 // var elecricView2 = new Electric_presenter(canvas, "green", 1);
 
 
@@ -45,7 +49,8 @@ var electricView = new Electric_presenter(canvas, "#cb42f4", 3);
 // electricView.__proto__.prototype = observer;
 // electricModel.__proto__ = observable;
 //
-electricModel.addObserver(electricView);
+electricModel1.addObserver(electricView);
+electricModel2.addObserver(electricView);
 // electricModel.addObserver(elecricView2);
 
 console.log(playBtn);

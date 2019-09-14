@@ -22,11 +22,13 @@
 
 // model
 // open to extention closed to modification
-function Electric(points, xTollorance, yTollorance){
+function Electric(points, colour, lineWidth){
     this.xTollorance = 0;
-    this.yTollorance = 30; // works with even values: may work with non-even(is an edge case)
+    this.yTollorance = 8; // works with even values: may work with non-even(is an edge case)
     this.points = points;
     this.pointsOriginal = arrayOfPointsCopy(points);
+    this.colour = colour || "#555";
+    this.lineWidth = lineWidth || 2;
     this.observers = []; 
 }
 
@@ -61,19 +63,29 @@ Electric.prototype.changeYState = function(){
 Electric.prototype.notifyObservers = function(){
     if(this.observers.length >= 1){
         console.log("notifying observers and parsing " + this);
-        this.notify(this);
+        this.notify();
     }
 };
 
 Electric.prototype.notify = function(){
+    var self = this;
     this.observers.forEach(function(observer){
-        observer.update(this); // pass reference of observable obj to observer 
+        observer.update(self); // pass reference of observable obj to observer
     })
 }; 
 
 
 Electric.prototype.addObserver = function(observer){
     this.observers.push(observer);
+    this.observers[0].addClient(this); 
+}; 
+
+Electric.prototype.getColour = function(){
+    return this.colour; 
+}; 
+
+Electric.prototype.getLineWidth = function(){
+    return this.lineWidth; 
 }
 
 
